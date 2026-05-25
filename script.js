@@ -579,9 +579,9 @@ const chicago = {
                     loggedUserIdentification: d.cpf,
                     contractDebtorName: d.usuario,
                     contractDebtorIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
@@ -593,13 +593,13 @@ const chicago = {
                 payload.resource = {
                     loggedUserIdentification: d.cpf,
                     contractDebtorIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
-                    creditorProxy: "1b25f9c3-8c4c-4491-b67f-10cf007d500c",
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
                     brazilCpf: d.cpf
                 };
                 break;
@@ -607,13 +607,13 @@ const chicago = {
             case 'e2e_pf':
                 payload.resource = {
                     loggedUserIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
-                    creditorProxy: "1b25f9c3-8c4c-4491-b67f-10cf007d500c",
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
                     brazilCpf: d.cpf
                 };
                 break;
@@ -625,9 +625,9 @@ const chicago = {
                     loggedUserIdentification: d.cpf,
                     contractDebtorName: d.usuario,
                     contractDebtorIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
@@ -643,9 +643,9 @@ const chicago = {
                     },
                     "resource": {
                         loggedUserIdentification: d.cpf,
-                        creditorAccountIspb: "18236120",
+                        creditorAccountIspb: "22896431",
                         creditorAccountIssuer: "0001",
-                        creditorAccountNumber: "8360375143",
+                        creditorAccountNumber: "1350122360",
                         creditorAccountAccountType: "TRAN",
                         creditorName: "JSR SERVICE LTDA",
                         creditorCpfCnpj: "63602987000134",
@@ -657,13 +657,13 @@ const chicago = {
             case 'no_redirect_sched_novo_pf':
                 payload.resource = {
                     loggedUserIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
-                    creditorProxy: "1b25f9c3-8c4c-4491-b67f-10cf007d500c",
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
                     brazilCpf: d.cpf
                 };
                 break;
@@ -743,9 +743,9 @@ const chicago = {
                     businessEntityIdentification: d.cnpj,
                     contractDebtorName: d.usuario,
                     contractDebtorIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
@@ -759,13 +759,13 @@ const chicago = {
                 payload.resource = {
                     loggedUserIdentification: d.cpf,
                     businessEntityIdentification: d.cnpj,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
-                    creditorProxy: "1b25f9c3-8c4c-4491-b67f-10cf007d500c",
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
                     brazilCpf: d.cpf,
                     brazilCnpj: d.cnpj
                 };
@@ -778,9 +778,9 @@ const chicago = {
                     loggedUserIdentification: d.cpf,
                     contractDebtorName: d.usuario,
                     contractDebtorIdentification: d.cpf,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
@@ -798,9 +798,9 @@ const chicago = {
                     },
                     "resource": {
                         loggedUserIdentification: d.cpf,
-                        creditorAccountIspb: "18236120",
+                        creditorAccountIspb: "22896431",
                         creditorAccountIssuer: "0001",
-                        creditorAccountNumber: "8360375143",
+                        creditorAccountNumber: "1350122360",
                         creditorAccountAccountType: "TRAN",
                         creditorName: "JSR SERVICE LTDA",
                         creditorCpfCnpj: "63602987000134",
@@ -815,13 +815,13 @@ const chicago = {
                 payload.resource = {
                     loggedUserIdentification: d.cpf,
                     businessEntityIdentification: d.cnpj,
-                    creditorAccountIspb: "18236120",
+                    creditorAccountIspb: "22896431",
                     creditorAccountIssuer: "0001",
-                    creditorAccountNumber: "8360375143",
+                    creditorAccountNumber: "1350122360",
                     creditorAccountAccountType: "TRAN",
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
-                    creditorProxy: "1b25f9c3-8c4c-4491-b67f-10cf007d500c", 
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc", 
                     brazilCpf: d.cpf,
                     brazilCnpj: d.cnpj
                 };
