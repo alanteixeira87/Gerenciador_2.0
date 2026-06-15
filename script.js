@@ -1,8 +1,8 @@
 ﻿const DB = {
     marcas: ["ABC","Accreditto","Ailos","Ame Digital","Asaas","Azimut","Banco do Brasil","Banco do Nordeste","Banrisul","Bari","BMG","Bradesco","BRB","BTG Banking","BV","C6","Caixa","Celcoin","Cielo","Cora","Digio","Efí","Genial","Geru","Getnet","Hyundai","Infinite Pay","Inter","Itaú","Iti","Iugu","Listo","Master","Mei Fácil","Mercado Pago","Mercantil","Midway","Modal","Méliuz","Neon","Next","Nubank","Original","PagBank","Pan","Pic Pay","PlayersBank","Quero Quero Pag","Randon","RecargaPay","Rico","Safra","Santander","Sicoob","Sicredi","Sofisa","Stone","Super Digital","Uber Conta","Up.P","Volvo","WillBank","XP","Ágora Investimentos","Íon","BTG Investimentos","Santander Cartões","Santander Financiamentos","Santander Crédito Imob","Empréstimo Sim","Santander Corretora","Bradescard","Investimentos BB","Toro","Ourocard","BTG Empresas","Iniciador.com","Google Pay","Lina Openx","Banco Industrial","Pernambucanas","Rede","Porto Bank","WHG","MagaluPay","Monte Bravo","Klavi","Mobilize Financial","CrediNissan","Belvo","Àgora Investimento","Crefisa"],
     testes: [
-        "JO Automatic Pix","JO Payments","JO Sweeping Payments Balances","JO Sweeping Revoked Consent","JO Sweeping Revoked Recurring","JO Sweeping Invalid Par","JO Sweeping Invalid Request","JO Enrollments Balances","JO Enrollments Revoked Consent","JO Enrollments Revoked Enrollment","JO Enrollments Invalid Request","JO Enrollments Invalid Par","Customer Data Happy Path - V3", "Pix Scheduling 1-2", "JSR Pix Verification 1-2", "Pix Retry 1-3", "Consents V3", "Accounts V3", "Debtor V4", "Not Cancelled V4", "Resources", "Unique", "Custom Core V4", "Real Email Invalid V4", "Fake Email Proxy V4", "SWP Total Allowed", "SWP Accounts Core", "Payments Core V2.2", "Invalid Challenge V2.2", "Invalid Origin V2.2", "Invalid Public Key V2.2", "Invalid RPID V2.2", "Pre-Enrollment V2.2", "Invalid Status V2.2", "Keys Swap V2.2", "Unmatching Fields V2.2", "APX Semanal", "APX Scheduled", "Authorised Executed", "Limits Negative", "Limits", "Not Authorised",
-        "Optimised Journey Core - API Version 1", "Optimised Journey Automatic Payments API - Version 1", "Optimised Journey No Redirect Payments"
+        "JO Automatic Pix","JO Payments","JO Sweeping Payments Balances","JO Sweeping Revoked Consent","JO Sweeping Revoked Recurring","JO Sweeping Invalid Par","JO Sweeping Invalid Request","JO Enrollments Balances","JO Enrollments Revoked Consent","JO Enrollments Revoked Enrollment","JO Enrollments Invalid Request","JO Enrollments Invalid Par","Customer Data Happy Path", "Pix Scheduling 1-2", "JSR Pix Verification 1-2", "Pix Retry 1-3", "Consents V3", "Accounts V3", "Debtor V4", "Not Cancelled V4", "Resources", "Unique", "Custom Core V4", "Real Email Invalid V4", "Fake Email Proxy V4", "SWP Total Allowed", "SWP Accounts Core", "Payments Core V2.2", "Invalid Challenge V2.2", "Invalid Origin V2.2", "Invalid Public Key V2.2", "Invalid RPID V2.2", "Pre-Enrollment V2.2", "Invalid Status V2.2", "Keys Swap V2.2", "Unmatching Fields V2.2", "APX Semanal", "APX Scheduled", "Authorised Executed", "Limits Negative", "Limits", "Not Authorised",
+        "Pix Verification 1-2", "JSR Pix Schedulling 1-2",
     ]
 };
 
@@ -243,7 +243,6 @@ const app = {
     updateErrorReport: function() { 
         const stage = document.getElementById('errorStage').value;
         const version = document.getElementById('errorVersion').value;
-        const attempts = document.getElementById('errorAttempts').value;
         const platform = document.getElementById('errorPlatform').value;
         const analysis = document.getElementById('errorAnalysis').value;
         const versionInput = document.getElementById('errorVersion');
@@ -254,15 +253,15 @@ const app = {
         let text = "";
         if (stage === '1') {
             if(!analysis && document.getElementById('errorAnalysis').value === "") document.getElementById('errorAnalysis').value = "Boa tarde, o teste foi realizado pelo usuário mas apresentou erro.";
-            text = `Prezados, realizamos o teste solicitado, porém apresentou erro antes do redirecionamento.\n${commonPhrase}Número de tentativas: ${attempts}\nAnálise do QA: ${document.getElementById('errorAnalysis').value}`;
+            text = `Prezados, realizamos o teste solicitado, porém apresentou erro antes do redirecionamento.\n${commonPhrase}Análise do QA: ${document.getElementById('errorAnalysis').value}`;
         } else if (stage === '2') {
-            text = `Prezados, realizamos o teste solicitado, porém apresentou durante a etapa de login do usuário.\n${commonPhrase}Versão do app: ${version}\nNúmero de tentativas: ${attempts}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
+            text = `Prezados, realizamos o teste solicitado, porém apresentou durante a etapa de login do usuário.\n${commonPhrase}Versão do app: ${version}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
         } else if (stage === '3') {
-            text = `Prezados, realizamos o teste solicitado, porém apresentou durante a jornada de consentimento.\n${commonPhrase}Versão do app: ${version}\nNúmero de tentativas: ${attempts}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
+            text = `Prezados, realizamos o teste solicitado, porém apresentou durante a jornada de consentimento.\n${commonPhrase}Versão do app: ${version}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
         } else if (stage === '4') {
-            text = `Prezados, realizamos o teste solicitado, porém ao retornar para o FVP apresenta erro.\n${commonPhrase}Versão: ${version}\nNúmero de tentativas: ${attempts}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
+            text = `Prezados, realizamos o teste solicitado, porém ao retornar para o FVP apresenta erro.\n${commonPhrase}Versão: ${version}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
         } else if (stage === '5') {
-            text = `Teste realizado com sucesso.\n${commonPhrase}Versão app: ${version}\nNúmero de tentativas: ${attempts}\nPlataforma: ${platform}`;
+            text = `Teste realizado com sucesso.\n${commonPhrase}Versão app: ${version}\nPlataforma: ${platform}`;
         }
         document.getElementById('errorResult').value = text;
     },
@@ -617,6 +616,20 @@ const chicago = {
                     brazilCpf: d.cpf
                 };
                 break;
+            case 'e2e_name_pf':
+                payload.resource = {
+                    loggedUserIdentification: d.cpf,
+                    creditorAccountIspb: "22896431",
+                    creditorAccountIssuer: "0001",
+                    creditorAccountNumber: "1350122360",
+                    creditorAccountAccountType: "TRAN",
+                    creditorName: "JSR SERVICE LTDA",
+                    creditorCpfCnpj: "63602987000134",
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
+                    name: d.usuario,
+                    brazilCpf: d.cpf
+                };
+                break;
 
             // --- NOVOS PF ---
             case 'no_redirect_auto_sched_novo_pf':
@@ -766,6 +779,22 @@ const chicago = {
                     creditorName: "JSR SERVICE LTDA",
                     creditorCpfCnpj: "63602987000134",
                     creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
+                    brazilCpf: d.cpf,
+                    brazilCnpj: d.cnpj
+                };
+                break;
+            case 'e2e_name_pj':
+                payload.resource = {
+                    loggedUserIdentification: d.cpf,
+                    businessEntityIdentification: d.cnpj,
+                    creditorAccountIspb: "22896431",
+                    creditorAccountIssuer: "0001",
+                    creditorAccountNumber: "1350122360",
+                    creditorAccountAccountType: "TRAN",
+                    creditorName: "JSR SERVICE LTDA",
+                    creditorCpfCnpj: "63602987000134",
+                    creditorProxy: "0d44e14e-23eb-4073-bc61-e8def759d8cc",
+                    name: d.usuario,
                     brazilCpf: d.cpf,
                     brazilCnpj: d.cnpj
                 };
