@@ -250,6 +250,7 @@
                     <div class="group"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">Saldo</label><div class="flex shadow-sm hover:shadow-md cursor-pointer" onclick="app.copyText('evResult1')"><div id="evResult1" class="flex-grow px-4 py-3 text-sm font-mono text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-l-xl border-r-0 truncate flex items-center">Aguardando...</div><button class="rounded-r-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 text-gray-400 group-hover:text-primary-500 transition-colors border-l"><i data-lucide="copy" size="18"></i></button></div></div>
                     <div class="group"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">Versão App</label><div class="flex shadow-sm hover:shadow-md cursor-pointer" onclick="app.copyText('evResult2')"><div id="evResult2" class="flex-grow px-4 py-3 text-sm font-mono text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-l-xl border-r-0 truncate flex items-center">Aguardando...</div><button class="rounded-r-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 text-gray-400 group-hover:text-primary-500 transition-colors border-l"><i data-lucide="copy" size="18"></i></button></div></div>
                     <div class="group"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">Erro</label><div class="flex shadow-sm hover:shadow-md cursor-pointer" onclick="app.copyText('evResult3')"><div id="evResult3" class="flex-grow px-4 py-3 text-sm font-mono text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-l-xl border-r-0 truncate flex items-center">Aguardando...</div><button class="rounded-r-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 text-gray-400 group-hover:text-primary-500 transition-colors border-l"><i data-lucide="copy" size="18"></i></button></div></div>
+                    <div class="group"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">Saldo Zerado</label><div class="flex shadow-sm hover:shadow-md cursor-pointer" onclick="app.copyText('evResult4')"><div id="evResult4" class="flex-grow px-4 py-3 text-sm font-mono text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-l-xl border-r-0 truncate flex items-center">Aguardando...</div><button class="rounded-r-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 text-gray-400 group-hover:text-primary-500 transition-colors border-l"><i data-lucide="copy" size="18"></i></button></div></div>
                 </div>
             </div>
         </div>
@@ -285,14 +286,11 @@
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden ring-1 ring-black/5">
                 <div class="px-8 py-5 border-b border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800"><div><h2 class="text-lg font-bold text-gray-900 dark:text-white">Gerador de Relatórios</h2><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Padronização de resultados (NOK / OK).</p></div></div>
                 <div class="p-8 grid grid-cols-1 md:grid-cols-12 gap-6">
-                    <div class="md:col-span-12 space-y-2"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Qual o status/etapa do teste?</label><select id="errorStage" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-xl text-sm dark:text-white" onchange="app.updateErrorReport()"><option value="1">1. Erro: Antes do Redirecionamento</option><option value="2">2. Erro: Durante Autenticação/Login</option><option value="3">3. Erro: Durante Consentimento</option><option value="4">4. Erro: Retorno FVP (Erro Final)</option><option value="5" class="text-green-600 font-bold">5. Teste Realizado com Sucesso (OK)</option></select></div>
-                    <div class="md:col-span-4 space-y-2"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Versão do App</label><input type="text" id="errorVersion" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-xl text-sm dark:text-white disabled:opacity-50" placeholder="Ex: 8.5.0" oninput="app.updateErrorReport()"></div>
-                    <div class="md:col-span-4 space-y-2"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Plataforma</label><select id="errorPlatform" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-xl text-sm dark:text-white" onchange="app.updateErrorReport()"><option>Android</option><option>iOS</option><option>Desktop</option></select></div>
-                    <div class="md:col-span-12 space-y-2" id="analysisContainer"><div class="flex justify-between items-center"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Análise do QA</label><button onclick="app.insertRaidiamText()" class="text-xs text-primary-600 font-semibold flex items-center gap-1"><i data-lucide="plus-circle" size="14"></i> Texto Raidiam</button></div><textarea id="errorAnalysis" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-xl text-sm font-mono h-24 resize-none dark:text-gray-300" oninput="app.updateErrorReport()"></textarea></div>
+                    <div class="md:col-span-12 space-y-2"><label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Qual é o cenário do teste?</label><select id="errorStage" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-700 rounded-xl text-sm dark:text-white" onchange="app.updateErrorReport()"><option value="1">1. Erro antes do redirecionamento</option><option value="2">2. Erro durante o login</option><option value="3">3. Erro durante o consentimento</option><option value="4">4. Erro no retorno à FVP</option><option value="5">5. Teste realizado com sucesso</option><option value="6">6. Evidência de saldo disponível</option><option value="7">7. Saldo zerado e agendamento</option></select></div>
                 </div>
                 <div class="border-t border-gray-200 dark:border-slate-700 bg-gray-50/80 dark:bg-slate-900/30 p-6">
                     <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">Preview</label>
-                    <div class="relative"><textarea id="errorResult" readonly class="w-full p-4 text-sm font-mono text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-950 border border-gray-200 dark:border-slate-700 rounded-xl h-48 resize-none"></textarea><button onclick="app.copyText('errorResult')" class="absolute top-3 right-3 px-4 py-2 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 text-xs font-bold rounded-lg border border-gray-200 dark:border-slate-600 flex items-center gap-2"><i data-lucide="copy" size="14"></i> Copiar</button></div>
+                    <div class="relative"><textarea id="errorResult" class="w-full p-4 text-sm font-mono text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-950 border border-gray-200 dark:border-slate-700 rounded-xl h-64 resize-y"></textarea><button onclick="app.copyText('errorResult')" class="absolute top-3 right-3 px-4 py-2 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 text-xs font-bold rounded-lg border border-gray-200 dark:border-slate-600 flex items-center gap-2"><i data-lucide="copy" size="14"></i> Copiar</button></div>
                 </div>
             </div>
         </div>
@@ -417,29 +415,52 @@
                                     <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-2">Tipo de Teste (Payload)</label>
                                     <select id="chi_select_test" class="w-full px-3 py-3 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl text-[12px] md:text-[13px] font-medium focus:ring-2 focus:ring-primary-500 outline-none dark:text-white cursor-pointer shadow-sm truncate">
                                         
-                                        <option value="customer_data_v3">Customer Data Happy Path - V3</option>
-                                        <option value="sweeping">Production Funcional Tests For Automatic Sweeping Payments</option>
-                                        <option value="payments">Production Functional Testes for Automatic Pix Payments</option>
-                                        <option value="scheduling">Production Functional Tests For Automatic Pix Payments Scheduling</option>
-                                        <option value="e2e">Production Funcional Tests For Payments E2E - API Version 4</option>
+                                        <option value="customer_data_v3">Customer Data APIs - v2/v3 - Happy Path - Open FVP</option>
+                                        <option value="sweeping">Automatic Payments API - v2.2.0 - Sweeping - Open FVP</option>
+                                        <option value="payments">Automatic Payments API - v2.2.0 - Automatic Pix - Open FVP</option>
+                                        <option value="scheduling">Automatic Payments API - v2.2.0 - Sweeping Scheduling - Restricted FVP</option>
+                                        <option value="e2e">Payments API - v4.0.1 - Open FVP</option>
                                         <option value="e2e_name">Production Funcional Tests For Payments E2E - API Version 4 (no_debtor_v4)</option>
                                         
                                         <option disabled value="" class="font-bold text-gray-400 dark:text-gray-600 text-center">──────────────── NOVOS TESTES ────────────────</option>
 
-                                        <option value="no_redirect_auto_novo" class="text-primary-700 dark:text-primary-400 font-bold">Production Funcional Tests For No Redirect Automatic Pix Payments - API Version 2.2</option>
-                                        <option value="no_redirect_pix_novo" class="text-primary-700 dark:text-primary-400 font-bold">Production Funcional Tests For No Redirect Payments - API Version 2.2</option>
-                                        <option value="no_redirect_auto_sched_novo" class="text-primary-700 dark:text-primary-400 font-bold">Production Funcional Tests For no Redirect Automatic Pix Payments Scheduling - API Version 2.2</option>
-                                        <option value="no_redirect_sched_novo" class="text-primary-700 dark:text-primary-400 font-bold">Production Funcional Tests For No Redirect Payments Scheduling - API Version 2.2</option>
+                                        <option value="no_redirect_auto_novo" class="text-primary-700 dark:text-primary-400 font-bold">Enrollments API - v2.2.0 - Automatic Payments - Open FVP</option>
+                                        <option value="no_redirect_pix_novo" class="text-primary-700 dark:text-primary-400 font-bold">Enrollments API - v2.2.0 - Payments - Open FVP</option>
+                                        <option value="no_redirect_auto_sched_novo" class="text-primary-700 dark:text-primary-400 font-bold">Enrollments API - v2.2.0 - Automatic Payments Scheduling - Restricted FVP</option>
+                                        <option value="no_redirect_sched_novo" class="text-primary-700 dark:text-primary-400 font-bold">Enrollments API - v2.2.0 - Payments Scheduling - Restricted FVP</option>
                                         
                                         <option disabled value="" class="font-bold text-gray-400 dark:text-gray-600 text-center">────────────── OPTIMISED TESTS ──────────────</option>
                                         
-                                        <option value="opt_core_v1" class="text-blue-500 dark:text-blue-400 font-bold">Optimised Journey Core - API Version 1</option>
-                                        <option value="opt_auto_v1" class="text-blue-500 dark:text-blue-400 font-bold">Optimised Journey Automatic Payments API - Version 1 "Sweeping"</option>
-                                        <option value="opt_noredirect_v1" class="text-blue-500 dark:text-blue-400 font-bold">Optimised Journey No Redirect Payments "Enrollments"</option>
+                                        <option value="opt_core_v1" class="text-blue-500 dark:text-blue-400 font-bold">Optimised Journey - v1.0 - Core - Open FVP</option>
+                                        <option value="opt_auto_v1" class="text-blue-500 dark:text-blue-400 font-bold">Optimised Journey - v1.0 - Automatic Payments API - v2.2.0 - Open FVP</option>
+                                        <option value="opt_noredirect_v1" class="text-blue-500 dark:text-blue-400 font-bold">Optimised Journey - v1.0 - Enrollments API - v2.2.0 - Open FVP</option>
                                         
                                     </select>
                                 </div>
 
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                                <div class="md:col-span-3">
+                                    <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-2">Execucao</label>
+                                    <select id="chi_execution_type" onchange="chicago.toggleSdTicket()" class="w-full px-3 py-3 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-primary-500 outline-none dark:text-white cursor-pointer shadow-sm">
+                                        <option value="Test">Test</option>
+                                        <option value="Retest">Retest</option>
+                                    </select>
+                                </div>
+                                <div class="md:col-span-3">
+                                    <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-2">Cycle</label>
+                                    <select id="chi_cycle" class="w-full px-3 py-3 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-primary-500 outline-none dark:text-white cursor-pointer shadow-sm">
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                                <div id="chi_sd_ticket_group" class="md:col-span-6 hidden">
+                                    <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-2">SDticket</label>
+                                    <input type="text" id="chi_sd_ticket" class="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white shadow-sm" placeholder="Informe o SDticket">
+                                </div>
                             </div>
 
                             <div class="flex flex-col md:flex-row gap-3 mt-4">

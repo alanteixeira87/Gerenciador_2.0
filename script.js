@@ -6,6 +6,62 @@
     ]
 };
 
+const REPORT_TEMPLATES = {
+    "1": `Prezados,
+
+O teste foi executado, porém apresentou erro durante a geração do QR Code, conforme evidenciado no log.
+
+As informações correspondentes ao teste constam na evidência anexa.
+
+Atenciosamente,`,
+    "2": `Prezados,
+
+O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code. No entanto, antes da realização do login junto à instituição financeira solicitante, foi apresentado erro e a execução foi interrompida, conforme evidenciado no log.
+
+As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+
+Atenciosamente,`,
+    "3": `Prezados,
+
+O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code. No entanto, após a realização do login junto à instituição financeira solicitante, foi apresentado erro e a execução foi interrompida, conforme evidenciado no log.
+
+As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+
+Atenciosamente,`,
+    "4": `Prezados,
+
+O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+
+No entanto, foi apresentado erro no momento do retorno à Ferramenta de Validação em Produção.
+
+As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+
+Atenciosamente,`,
+    "5": `Prezados,
+
+O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+
+O teste foi concluído com sucesso.
+
+As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+
+Atenciosamente,`,
+    "6": `Prezados,
+
+O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+
+Segue anexa a evidência correspondente à execução, contendo o log e o print de saldo disponível para a realização do teste solicitado.
+
+Atenciosamente,`,
+    "7": `Prezados,
+
+O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+
+Seguem anexas as evidências correspondentes à execução, contendo o log, o print de saldo zerado e o print do agendamento realizado, conforme pré-requisito do teste.
+
+Atenciosamente,`
+};
+
 const app = {
     init: function() {
         this.verifyAuthStatus();
@@ -25,7 +81,8 @@ const app = {
         }
 
         this.switchTab('chicago'); 
-        chicago.loadSession(); 
+        chicago.loadSession();
+        chicago.toggleSdTicket();
     },
 
     openGuideModal: function() {
@@ -194,9 +251,11 @@ const app = {
     syncEvidences: function() { 
         const marca = document.getElementById('logMarca').value || "...";
         const seg = document.getElementById('logSegmento').value;
-        document.getElementById('evResult1').textContent = `Evidencia - ${marca} - ${seg} - Saldo`;
-        document.getElementById('evResult2').textContent = `Evidencia - ${marca} - ${seg} - Versão app`;
-        document.getElementById('evResult3').textContent = `Evidencia - ${marca} - ${seg} - Mensagem de erro`;
+        document.getElementById('evResult1').textContent = `Evidência - ${marca} - ${seg} - Saldo`;
+        document.getElementById('evResult2').textContent = `Evidência - ${marca} - ${seg} - Versão app`;
+        document.getElementById('evResult3').textContent = `Evidência - ${marca} - ${seg} - Mensagem de erro`;
+        const evResult4 = document.getElementById('evResult4');
+        if(evResult4) evResult4.textContent = `Evidência - ${marca} - ${seg} - Saldo zerado`;
     },
     copyText: function(id) {
         const el = document.getElementById(id);
@@ -242,30 +301,9 @@ const app = {
     },
     updateErrorReport: function() { 
         const stage = document.getElementById('errorStage').value;
-        const version = document.getElementById('errorVersion').value;
-        const platform = document.getElementById('errorPlatform').value;
-        const analysis = document.getElementById('errorAnalysis').value;
-        const versionInput = document.getElementById('errorVersion');
-        const analysisContainer = document.getElementById('analysisContainer');
-        if (stage === '1') { versionInput.disabled = true; versionInput.placeholder = "Não aplicável"; } else { versionInput.disabled = false; versionInput.placeholder = "Ex: 8.5.0"; }
-        if (stage === '5') { analysisContainer.style.display = 'none'; } else { analysisContainer.style.display = 'block'; }
-        const commonPhrase = "Anexo o log com detalhamento.\n";
-        let text = "";
-        if (stage === '1') {
-            if(!analysis && document.getElementById('errorAnalysis').value === "") document.getElementById('errorAnalysis').value = "Boa tarde, o teste foi realizado pelo usuário mas apresentou erro.";
-            text = `Prezados, realizamos o teste solicitado, porém apresentou erro antes do redirecionamento.\n${commonPhrase}Análise do QA: ${document.getElementById('errorAnalysis').value}`;
-        } else if (stage === '2') {
-            text = `Prezados, realizamos o teste solicitado, porém apresentou durante a etapa de login do usuário.\n${commonPhrase}Versão do app: ${version}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
-        } else if (stage === '3') {
-            text = `Prezados, realizamos o teste solicitado, porém apresentou durante a jornada de consentimento.\n${commonPhrase}Versão do app: ${version}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
-        } else if (stage === '4') {
-            text = `Prezados, realizamos o teste solicitado, porém ao retornar para o FVP apresenta erro.\n${commonPhrase}Versão: ${version}\nPlataforma: ${platform}\nAnálise do QA: ${analysis}`;
-        } else if (stage === '5') {
-            text = `Teste realizado com sucesso.\n${commonPhrase}Versão app: ${version}\nPlataforma: ${platform}`;
-        }
-        document.getElementById('errorResult').value = text;
+        document.getElementById('errorResult').value = REPORT_TEMPLATES[stage] || "";
     },
-    insertRaidiamText: function() { document.getElementById('errorAnalysis').value = "Boa tarde, o teste foi realizado pelo usuário mas apresentou erro."; this.updateErrorReport(); },
+    insertRaidiamText: function() { this.updateErrorReport(); },
     getStored: () => JSON.parse(localStorage.getItem('qa_scheduler_v2') || '[]'),
     saveTest: function() { 
         const d = { id: Date.now(), brand: document.getElementById('agendaMarca').value, seg: document.getElementById('agendaSegmento').value, type: document.getElementById('agendaTipo').value, start: document.getElementById('agendaInicio').value, end: document.getElementById('agendaFim').value, desc: document.getElementById('agendaInstrucoes').value };
@@ -360,7 +398,10 @@ const chicago = {
             conta: document.getElementById('chi_conta').value,
             contapj: document.getElementById('chi_contapj').value,
             tipo: document.getElementById('chi_tipo').value.toUpperCase(),
-            tipopj: document.getElementById('chi_tipopj').value.toUpperCase()
+            tipopj: document.getElementById('chi_tipopj').value.toUpperCase(),
+            executionType: document.getElementById('chi_execution_type')?.value || "Test",
+            cycle: document.getElementById('chi_cycle')?.value || "",
+            sdTicket: document.getElementById('chi_sd_ticket')?.value || ""
         };
     },
 
@@ -391,6 +432,30 @@ const chicago = {
         document.getElementById('chi_contapj').value = s.contapj || "";
         document.getElementById('chi_tipo').value = s.tipo || "";
         document.getElementById('chi_tipopj').value = s.tipopj || "";
+        if(document.getElementById('chi_execution_type')) document.getElementById('chi_execution_type').value = s.executionType || "Test";
+        if(document.getElementById('chi_cycle')) document.getElementById('chi_cycle').value = s.cycle || "17";
+        if(document.getElementById('chi_sd_ticket')) document.getElementById('chi_sd_ticket').value = s.sdTicket || "";
+        this.toggleSdTicket();
+    },
+
+    toggleSdTicket: function() {
+        const executionType = document.getElementById('chi_execution_type')?.value || "Test";
+        const sdTicketGroup = document.getElementById('chi_sd_ticket_group');
+        if(!sdTicketGroup) return;
+        sdTicketGroup.classList.toggle('hidden', executionType !== "Retest");
+    },
+
+    appendRunMetadata: function(payload) {
+        const executionType = document.getElementById('chi_execution_type')?.value || "Test";
+        const cycle = document.getElementById('chi_cycle')?.value || "";
+        payload.runMetadata = {
+            type: executionType,
+            cycle: cycle
+        };
+        if(executionType === "Retest") {
+            payload.runMetadata.sdTicket = document.getElementById('chi_sd_ticket')?.value || "";
+        }
+        return payload;
     },
 
     populateBrandDropdown: function() {
@@ -907,6 +972,7 @@ const chicago = {
                 break;
         }
 
+        this.appendRunMetadata(payload);
         this.outputJson(payload);
         app.showToast("JSON gerado com sucesso!");
     }
