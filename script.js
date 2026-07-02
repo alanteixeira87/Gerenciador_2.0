@@ -433,7 +433,12 @@ const chicago = {
         document.getElementById('chi_tipo').value = s.tipo || "";
         document.getElementById('chi_tipopj').value = s.tipopj || "";
         if(document.getElementById('chi_execution_type')) document.getElementById('chi_execution_type').value = s.executionType || "Test";
-        if(document.getElementById('chi_cycle')) document.getElementById('chi_cycle').value = s.cycle || "17";
+        const cycleSelect = document.getElementById('chi_cycle');
+        if(cycleSelect) {
+            const savedCycle = s.cycle || "Julho-26";
+            const hasSavedCycle = Array.from(cycleSelect.options).some(option => option.value === savedCycle);
+            cycleSelect.value = hasSavedCycle ? savedCycle : "Julho-26";
+        }
         if(document.getElementById('chi_sd_ticket')) document.getElementById('chi_sd_ticket').value = s.sdTicket || "";
         this.toggleSdTicket();
     },
