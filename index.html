@@ -478,20 +478,20 @@
                     <div class="bg-[#1e1e1e] rounded-2xl shadow-xl flex-1 flex flex-col overflow-hidden relative border border-gray-800 min-h-[400px]">
                         <div class="px-5 py-3 bg-[#2d2d2d] flex justify-between items-center border-b border-black">
                             <span class="text-xs font-mono text-gray-400 flex items-center gap-2"><i data-lucide="terminal" size="14"></i> payload_request.json</span>
-                            <button type="button" disabled class="text-xs font-bold text-gray-500 flex items-center gap-2 bg-white/5 px-4 py-1.5 rounded-lg transition cursor-not-allowed">
+                            <button onclick="app.copyText('chi_result')" class="text-xs font-bold text-gray-300 hover:text-white flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-lg transition">
                                 <i data-lucide="copy" size="14"></i> Copiar Código
                             </button>
                         </div>
-                        <textarea id="chi_result" readonly disabled class="flex-1 w-full bg-transparent text-gray-500 font-mono text-sm p-6 resize-none outline-none custom-scrollbar cursor-not-allowed" placeholder="// Area de payload desativada"></textarea>
+                        <textarea id="chi_result" readonly class="flex-1 w-full bg-transparent text-green-400 font-mono text-sm p-6 resize-none outline-none custom-scrollbar" placeholder="// Preencha os campos e clique em Gerar JSON..."></textarea>
                         
                         <div class="bg-[#151515] p-4 border-t border-black flex justify-between items-center">
-                            <span class="text-xs text-gray-500 font-mono flex items-center gap-1"><i data-lucide="circle-off" size="12" class="text-gray-500"></i> Payload desativado</span>
+                            <span class="text-xs text-gray-500 font-mono flex items-center gap-1"><i data-lucide="check-circle-2" size="12" class="text-emerald-500"></i> JSON Pronto para Uso</span>
                             
                             <div class="tooltip">
-                                <button type="button" disabled class="px-5 py-2.5 bg-gray-600 text-white/70 text-sm font-bold rounded-lg shadow flex items-center gap-2 transition cursor-not-allowed">
+                                <button onclick="enviarParaFVP()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold rounded-lg shadow flex items-center gap-2 transition">
                                     Executar no FVP <i data-lucide="external-link" size="16"></i>
                                 </button>
-                                <span class="tooltiptext">Funcao de payload desativada</span>
+                                <span class="tooltiptext">Copia o JSON e abre o Conformance Suite Raidiam</span>
                             </div>
                         </div>
                     </div>
