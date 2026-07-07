@@ -349,6 +349,8 @@ const app = {
 // MÓDULO: JSON CHICAGO (API PAYLOADS)
 // ==========================================
 const chicago = {
+    payloadGeneratorEnabled: false,
+
     validaCPF: function(cpf) {
         cpf = cpf.replace(/\D/g, '');
         if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
@@ -594,6 +596,11 @@ const chicago = {
     },
 
     generateFromSelect: function() {
+        if(!this.payloadGeneratorEnabled) {
+            app.showToast("Apresentou erro, entre em contato com o administrador.", "error");
+            return;
+        }
+
         const segment = document.getElementById('chi_select_segment').value; 
         const test = document.getElementById('chi_select_test').value; 
         const typeToGenerate = `${test}_${segment}`; 
@@ -985,6 +992,11 @@ const chicago = {
 
 // NOVA FUNÇÃO: COPY & GO (FVP)
 function enviarParaFVP() {
+    if(!chicago.payloadGeneratorEnabled) {
+        app.showToast("Apresentou erro, entre em contato com o administrador.", "error");
+        return;
+    }
+
     const jsonGerado = document.getElementById('chi_result').value;
     
     if(!jsonGerado || jsonGerado.trim() === '' || jsonGerado.includes('// Preencha os campos')) {
