@@ -9,55 +9,66 @@
 const REPORT_TEMPLATES = {
     "1": `Prezados,
 
-O teste foi executado, porém apresentou erro durante a geração do QR Code, conforme evidenciado no log.
+Durante o fluxo de iniciação do teste na FVP, na etapa de geração do QR Code, foi realizada a ação de iniciar o pagamento; esperava-se a geração do QR Code para continuidade do fluxo, porém ocorreu erro nesta etapa, impedindo o prosseguimento do teste, conforme evidenciado em log anexo.
 
-As informações correspondentes ao teste constam na evidência anexa.
+Evidências: log da execução.
+Observações adicionais: não houve redirecionamento para a IF.
 
 Atenciosamente,`,
     "2": `Prezados,
 
-O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code. No entanto, antes da realização do login junto à instituição financeira solicitante, foi apresentado erro e a execução foi interrompida, conforme evidenciado no log.
+Durante o fluxo de pagamento, na etapa pós-leitura do QR Code e redirecionamento para a IF, foi realizada a tentativa de acesso para login; esperava-se a exibição da tela de autenticação para continuidade do processo, porém ocorreu erro antes da realização do login, interrompendo o fluxo, conforme evidenciado em log anexo.
 
-As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+Evidências: Log da execução e prints da jornada.
+Observações adicionais: Erro ocorreu antes da autenticação do usuário.
 
 Atenciosamente,`,
     "3": `Prezados,
 
-O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code. No entanto, após a realização do login junto à instituição financeira solicitante, foi apresentado erro e a execução foi interrompida, conforme evidenciado no log.
+Durante o fluxo de pagamento, na etapa posterior ao login na IF, foi realizada a ação de prosseguir com o consentimento; esperava-se a exibição ou conclusão da etapa de consentimento, porém ocorreu erro neste momento, interrompendo o fluxo, conforme evidenciado em log anexo.
 
-As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+Evidências: log da execução e prints da jornada.
+Observações adicionais: erro ocorreu após autenticação bem-sucedida.
 
 Atenciosamente,`,
     "4": `Prezados,
 
-O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+Durante o fluxo de pagamento, na etapa de retorno à FVP após conclusão das ações na IF, foi realizado login e preenchimento dos parâmetros conforme esperado; esperava-se o redirecionamento correto à FVP com continuidade/validação do fluxo, porém ocorreu erro no retorno, conforme evidenciado em log anexo.
 
-No entanto, foi apresentado erro no momento do retorno à Ferramenta de Validação em Produção.
-
-As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+Evidências: log da execução e prints da jornada.
+Observações adicionais: falha no redirecionamento de retorno.
 
 Atenciosamente,`,
     "5": `Prezados,
 
-O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+Durante o fluxo completo de pagamento, desde a geração do QR Code até o retorno à FVP, foram realizadas todas as etapas previstas (login, consentimento e confirmação); esperava-se a conclusão do teste com sucesso, o que ocorreu conforme esperado.
 
-O teste foi concluído com sucesso.
-
-As demais informações correspondentes ao teste constam nas evidências anexas, juntamente com os prints relacionados à execução.
+Evidências: log da execução e prints da jornada.
+Observações adicionais: fluxo executado sem inconsistências.
 
 Atenciosamente,`,
     "6": `Prezados,
 
-O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+Durante o fluxo completo do teste, desde o redirecionamento até o retorno à FVP, foram realizadas todas as etapas previstas (login, consentimento e confirmação); esperava-se a conclusão do teste com sucesso, o que ocorreu conforme esperado.
 
-Segue anexa a evidência correspondente à execução, contendo o log e o print de saldo disponível para a realização do teste solicitado.
+Evidências: log da execução e prints da jornada.
+Observações adicionais: fluxo executado sem inconsistências.
 
 Atenciosamente,`,
     "7": `Prezados,
 
-O teste seguiu a jornada esperada, com saída da FVP após a leitura do QR Code, login realizado junto à marca e preenchimento dos parâmetros esperados, conforme orientação do teste.
+Durante o fluxo de pagamento, na etapa de validação de saldo, foi realizado login e navegação conforme esperado, esperava-se a identificação de saldo disponível para execução do teste, o que foi confirmado conforme evidenciado.
 
-Seguem anexas as evidências correspondentes à execução, contendo o log, o print de saldo zerado e o print do agendamento realizado, conforme pré-requisito do teste.
+Evidências: Log da execução e print do saldo disponível.
+Observações adicionais: Saldo suficiente para realização do teste.
+
+Atenciosamente,`,
+    "8": `Prezados,
+
+Durante o fluxo de pagamento, na etapa de validação de saldo, foi realizado login e navegação conforme esperado, identificou-se saldo zerado, sendo necessário o agendamento da transação conforme pré-requisito do teste; o agendamento foi realizado com sucesso.
+
+Evidências: log da execução, print do saldo zerado e print do agendamento.
+Observações adicionais: fluxo seguiu conforme regra de callback para saldo insuficiente.
 
 Atenciosamente,`
 };
